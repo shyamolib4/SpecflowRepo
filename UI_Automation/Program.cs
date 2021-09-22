@@ -29,6 +29,7 @@ namespace UI_Automation
                 Thread.Sleep(3000);
                 driver.FindElement(By.XPath("//div[@class='s-expand-height s-include-content-margin s-latency-cf-section s-border-bottom']//img[@data-image-index='1']")).Click();
                 Thread.Sleep(3000);
+                
 
                 String windowHandle = driver.WindowHandles[1];
                 driver.SwitchTo().Window(windowHandle);
