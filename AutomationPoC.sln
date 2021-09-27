@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI_Automation", "UI_Automation\UI_Automation.csproj", "{F0A7679E-8B0A-43A9-A3C5-FCEAC676051E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleBdd", "SampleBdd\SampleBdd.csproj", "{622A54CA-631B-47A8-AC8A-E3EB2CDE8304}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{F0A7679E-8B0A-43A9-A3C5-FCEAC676051E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0A7679E-8B0A-43A9-A3C5-FCEAC676051E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0A7679E-8B0A-43A9-A3C5-FCEAC676051E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{622A54CA-631B-47A8-AC8A-E3EB2CDE8304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{622A54CA-631B-47A8-AC8A-E3EB2CDE8304}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{622A54CA-631B-47A8-AC8A-E3EB2CDE8304}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{622A54CA-631B-47A8-AC8A-E3EB2CDE8304}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

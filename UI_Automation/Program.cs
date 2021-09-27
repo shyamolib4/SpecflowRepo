@@ -5,7 +5,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,8 +19,8 @@ namespace UI_Automation
         static void Main(string[] args)
         {
             ChromeOptions options = new ChromeOptions();
-            options.AddArguments("--incognito"); 
-            IWebDriver driver = new ChromeDriver(options);
+            options.AddArguments("--incognito","headless"); 
+            IWebDriver driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),options);
             driver.Manage().Window.Maximize();
             try
             {
