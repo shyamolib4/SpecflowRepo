@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace UI_Automation
 {
-    [TestClass]
+    
     class Program
     {
         public static void Main(String[] args)
@@ -22,7 +22,7 @@ namespace UI_Automation
             AmazonSearch();
         }
 
-        [TestMethod]
+      
         public static void AmazonSearch()
         {
             ChromeOptions options = new ChromeOptions();
