@@ -14,9 +14,16 @@ using System.Threading.Tasks;
 
 namespace UI_Automation
 {
+    [TestClass]
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(String[] args)
+        {
+            AmazonSearch();
+        }
+
+        [TestMethod]
+        public static void AmazonSearch()
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--incognito","headless"); 
@@ -64,7 +71,7 @@ namespace UI_Automation
                     }
                 }
                 
-                
+         
 
                 
             }
