@@ -13,17 +13,17 @@ using System.Threading.Tasks;
 
 namespace UI_Automation
 {
-    class Program
+    public class Program
     {
         public static IWebDriver WebDriver { get; set; }
 
         public static string LogFolder = ConfigurationManager.AppSettings["LogFolder"] + "\\" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
 
-        private static string LogFileName = LogFolder + "\\TestLog.txt";
+        public static string LogFileName = LogFolder + "\\TestLog.txt";
 
         static void Main(string[] args)
         {
-            Program.IntitializeDriver();
+            /*Program.IntitializeDriver();
             System.IO.Directory.CreateDirectory(LogFolder);
             
 
@@ -33,14 +33,14 @@ namespace UI_Automation
 
             Login();
 
-           // Program.Log("***********************************************************END of test case************************************************************");
+            Program.Log("***********************************************************END of test case************************************************************");
 
-           // Program.Log("***********************************************************START of test case***********************************************************");
-            
+            Program.Log("***********************************************************START of test case***********************************************************");
+
 
             AddToCart();
 
-            Program.Log("***********************************************************END of test case************************************************************");
+            Program.Log("***********************************************************END of test case************************************************************");*/
         }
         
         public static IWebDriver IntitializeDriver()
@@ -48,6 +48,7 @@ namespace UI_Automation
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--incognito");
             WebDriver = new ChromeDriver(options);
+            WebDriver.Navigate().GoToUrl(ConfigurationManager.AppSettings["ApplicationURL"]);
             WebDriver.Manage().Window.Maximize();
             return WebDriver;
         }
@@ -111,6 +112,7 @@ namespace UI_Automation
 
         public static void Login()
         {
+           // WebDriver.Navigate().GoToUrl(ConfigurationManager.AppSettings["ApplicationURL"]);
             IWebElement SigninGrid = WebDriver.FindElement(By.XPath("//div[@class='nav-signin-tt nav-flyout']"));
 
             try
