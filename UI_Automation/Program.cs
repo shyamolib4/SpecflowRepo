@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections;
@@ -48,8 +47,8 @@ namespace UI_Automation
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--incognito");
             WebDriver = new ChromeDriver(options);
-            WebDriver.Navigate().GoToUrl(ConfigurationManager.AppSettings["ApplicationURL"]);
             WebDriver.Manage().Window.Maximize();
+            WebDriver.Navigate().GoToUrl(ConfigurationManager.AppSettings["ApplicationURL"]);
             return WebDriver;
         }
         
@@ -88,13 +87,13 @@ namespace UI_Automation
 
                     if (el.Text.Contains(telName))
                     {
-                        Assert.AreEqual(telName, el.Text);
+                        //Assert.AreEqual(telName, el.Text);
                         Program.Log("Verified item in the cart is:" + el.Text);
                         break;
                     }
                     else
                     {
-                        Assert.AreNotEqual(telName, el.Text);
+                        //Assert.AreNotEqual(telName, el.Text);
                     }
                 }
             }
