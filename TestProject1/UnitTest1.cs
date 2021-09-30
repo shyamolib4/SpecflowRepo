@@ -16,29 +16,30 @@ namespace TestProject1
         [TestInitialize]
         public void Startup()
         {
-            Program.IntitializeDriver();
-            System.IO.Directory.CreateDirectory(Program.LogFolder);
-          
+            Utilities.IntitializeDriver();
+            System.IO.Directory.CreateDirectory(Utilities.LogFolder);
+            Utilities.Log("***********************************************************START of test case***********************************************************");
+            Scenarios.Login();
         }
 
         [TestMethod]
         
         public void TestMethod1()
         {
-            Program.Login();
+            
         }
 
         [TestMethod]
         public void TestMethod2()
         {
-            Program.AddToCart();
+            Scenarios.AddToCart();
         }
-
 
         [TestCleanup]
         public void TearDown()
         {
-            Program.WebDriver.Quit();
+            Utilities.WebDriver.Quit();
+            Utilities.Log("***********************************************************END of test case************************************************************");
         }
     }
 }
