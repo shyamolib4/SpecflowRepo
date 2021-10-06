@@ -14,9 +14,9 @@ namespace UI_Automation
 {
     public class Program
     {
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
 
-        }
+        }*/
     }
 }

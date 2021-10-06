@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -11,9 +12,9 @@ namespace UI_Automation
 {
     public class Scenarios
     {
+        static String SignInText;
         public static void Login()
         {
-            // WebDriver.Navigate().GoToUrl(ConfigurationManager.AppSettings["ApplicationURL"]);
             IWebElement SigninGrid = Utilities.WebDriver.FindElement(By.XPath("//div[@class='nav-signin-tt nav-flyout']"));
 
             try
@@ -45,7 +46,10 @@ namespace UI_Automation
 
         public static void SignIn()
         {
-            String SignInText = Utilities.WebDriver.FindElement(By.XPath("//h1[@class='a-spacing-small']")).Text;
+            SignInText = Utilities.SignInText().Text;
+            
+            String  actUser;
+            String[] user;
 
             if (SignInText.Contains("Sign-In"))
             {
@@ -59,21 +63,18 @@ namespace UI_Automation
 
                 Thread.Sleep(3000);
 
-                String AppUser = Utilities.WebDriver.FindElement(By.Id("nav-link-accountList-nav-line-1")).Text;
-                String[] user = AppUser.Split(',');
+                user = Utilities.FetchUserName().Text.Split(',');
 
-                String actUser = user[1].Trim();
+                actUser = user[1].Trim();
 
                 if (ConfigurationManager.AppSettings["UserName"].Equals(actUser))
                 {
                     Utilities.Log("User " + actUser + " Successfully Signed-In");
 
-
                 }
                 else
                 {
                     Utilities.Log("User " + actUser + " Not Successfully Signed-In");
-
                 }
             }
             else
@@ -87,6 +88,7 @@ namespace UI_Automation
             try
             {
                 Utilities.WebDriver.FindElement(By.Id("twotabsearchtextbox")).SendKeys("television");
+                Utilities.Log("Searched for Television");
                 Thread.Sleep(3000);
                 Utilities.WebDriver.FindElement(By.Id("nav-search-submit-button")).Click();
                 Thread.Sleep(3000);
@@ -100,26 +102,56 @@ namespace UI_Automation
 
                 Utilities.WebDriver.FindElement(By.XPath("//input[@value='Add to Cart']")).Click();
                 Thread.Sleep(3000);
-                Utilities.WebDriver.FindElement(By.Id("nav-cart-count-container")).Click();
-                Thread.Sleep(3000);
 
-                IList<IWebElement> list = Utilities.WebDriver.FindElements(By.XPath("//span[@class='a-truncate-cut']"));
-
-                foreach (IWebElement el in list)
+                if (Utilities.WebDriver.FindElement(By.Id("attach-close_sideSheet-link")).Displayed)
                 {
-                    //Program.Log("In the cart:" + el.Text);
+                    Utilities.WebDriver.FindElement(By.Id("attach-close_sideSheet-link")).Click();
+                    Utilities.WebDriver.FindElement(By.Id("nav-cart-count-container")).Click();
+                    Thread.Sleep(3000);
 
-                    if (el.Text.Contains(telName))
+                    IList<IWebElement> list = Utilities.WebDriver.FindElements(By.XPath("//span[@class='a-truncate-cut']"));
+
+                    foreach (IWebElement el in list)
                     {
-                        //Assert.AreEqual(telName, el.Text);
-                        Utilities.Log("Verified item in the cart is:" + el.Text);
-                        break;
-                    }
-                    else
-                    {
-                        //Assert.AreNotEqual(telName, el.Text);
+                        //Program.Log("In the cart:" + el.Text);
+
+                        if (el.Text.Contains(telName))
+                        {
+                            //Assert.AreEqual(telName, el.Text);
+                            Utilities.Log("Verified item in the cart is:" + el.Text);
+                            break;
+                        }
+                        else
+                        {
+                            //Assert.AreNotEqual(telName, el.Text);
+                        }
                     }
                 }
+                else
+                {
+                   // Utilities.WebDriver.FindElement(By.Id("attach-close_sideSheet-link")).Click();
+                    Utilities.WebDriver.FindElement(By.Id("nav-cart-count-container")).Click();
+                    Thread.Sleep(3000);
+
+                    IList<IWebElement> list = Utilities.WebDriver.FindElements(By.XPath("//span[@class='a-truncate-cut']"));
+
+                    foreach (IWebElement el in list)
+                    {
+                        //Program.Log("In the cart:" + el.Text);
+
+                        if (el.Text.Contains(telName))
+                        {
+                            //Assert.AreEqual(telName, el.Text);
+                            Utilities.Log("Verified item in the cart is:" + el.Text);
+                            break;
+                        }
+                        else
+                        {
+                            //Assert.AreNotEqual(telName, el.Text);
+                        }
+                    }
+                }
+               
             }
             catch (Exception e)
             {
@@ -128,7 +160,36 @@ namespace UI_Automation
             finally
             {
                 Thread.Sleep(5000);
-                Utilities.WebDriver.Quit();
+              
+
+            }
+        }
+
+        public static void Logout()
+        {
+            Actions act = new Actions(Utilities.WebDriver);
+
+            String AppUser = Utilities.FetchUserName().Text;
+
+            if (AppUser.Contains(ConfigurationManager.AppSettings["UserName"]))
+            {
+                IWebElement el = Utilities.WebDriver.FindElement(By.Id("nav-link-accountList"));
+                act.MoveToElement(el).Build().Perform();
+                IWebElement Signout = Utilities.WebDriver.FindElement(By.Id("nav-item-signout"));
+                Signout.Click();
+                SignInText = Utilities.SignInText().Text;
+                if (SignInText.Contains("Sign-In"))
+                {
+                    Utilities.Log("User has logged out successfully");
+                }
+                else
+                {
+                    Utilities.Log("User has not logged out successfully");
+                }
+            }
+            else
+            {
+                Utilities.Log("User is not logged in");
 
             }
         }

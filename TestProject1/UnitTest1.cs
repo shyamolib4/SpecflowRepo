@@ -22,13 +22,7 @@ namespace TestProject1
             Scenarios.Login();
         }
 
-        [TestMethod]
         
-        public void TestMethod1()
-        {
-            
-        }
-
         [TestMethod]
         public void TestMethod2()
         {
@@ -38,6 +32,7 @@ namespace TestProject1
         [TestCleanup]
         public void TearDown()
         {
+            Scenarios.Logout();
             Utilities.WebDriver.Quit();
             Utilities.Log("***********************************************************END of test case************************************************************");
         }
