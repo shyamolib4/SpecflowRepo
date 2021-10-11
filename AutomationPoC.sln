@@ -5,10 +5,6 @@ VisualStudioVersion = 16.0.31515.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI_Automation", "UI_Automation\UI_Automation.csproj", "{F0A7679E-8B0A-43A9-A3C5-FCEAC676051E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "TestProject1\TestProject1.csproj", "{603255C4-F76E-4687-80D1-46507DA4577E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowMSTest", "SpecFlowProject2\SpecFlowMSTest.csproj", "{FAA4B9CF-9B79-4AE7-8277-5082F5CCCBF4}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpecFlowProjectWithRunner", "SpecFlowProjectWithRunner\SpecFlowProjectWithRunner.csproj", "{9159F9E2-3DB5-40AB-AE9D-07618C89AEE1}"
 EndProject
 Global
@@ -21,14 +17,6 @@ Global
 		{F0A7679E-8B0A-43A9-A3C5-FCEAC676051E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0A7679E-8B0A-43A9-A3C5-FCEAC676051E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0A7679E-8B0A-43A9-A3C5-FCEAC676051E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{603255C4-F76E-4687-80D1-46507DA4577E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{603255C4-F76E-4687-80D1-46507DA4577E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{603255C4-F76E-4687-80D1-46507DA4577E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{603255C4-F76E-4687-80D1-46507DA4577E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FAA4B9CF-9B79-4AE7-8277-5082F5CCCBF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FAA4B9CF-9B79-4AE7-8277-5082F5CCCBF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FAA4B9CF-9B79-4AE7-8277-5082F5CCCBF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FAA4B9CF-9B79-4AE7-8277-5082F5CCCBF4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9159F9E2-3DB5-40AB-AE9D-07618C89AEE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9159F9E2-3DB5-40AB-AE9D-07618C89AEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9159F9E2-3DB5-40AB-AE9D-07618C89AEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
