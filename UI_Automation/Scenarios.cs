@@ -13,6 +13,7 @@ namespace UI_Automation
     public class Scenarios
     {
         static String SignInText;
+
         public static void Login()
         {
             IWebElement SigninGrid = Utilities.WebDriver.FindElement(By.XPath("//div[@class='nav-signin-tt nav-flyout']"));

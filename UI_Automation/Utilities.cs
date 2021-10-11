@@ -19,14 +19,18 @@ namespace UI_Automation
         public static string LogFolder = ConfigurationManager.AppSettings["LogFolder"] + "\\" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
 
         public static string LogFileName = LogFolder + "\\TestLog.txt";
+
+        
+
         public static IWebDriver IntitializeDriver()
         {
             ChromeOptions options = new ChromeOptions();
             options.AddArguments("--incognito");
             WebDriver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location),options);
             WebDriver.Manage().Window.Maximize();
+            //WebDriver.Navigate().GoToUrl(ConfigurationManager.AppSettings["ApplicationURL"]);
             WebDriver.Navigate().GoToUrl("https://www.amazon.in");
-            //ConfigurationManager.AppSettings["ApplicationURL"]
+
             return WebDriver;
         }
 

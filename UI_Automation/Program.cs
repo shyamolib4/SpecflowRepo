@@ -10,13 +10,14 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+
 namespace UI_Automation
 {
     public class Program
     {
-        /*static void Main(string[] args)
+     /*   private static void Main(string[] args)
         {
-
+            Utilities.IntitializeDriver();
         }*/
     }
 }
